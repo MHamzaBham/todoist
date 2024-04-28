@@ -3,7 +3,6 @@ const jwt = require('jsonwebtoken')
 
 const auth = (req, res, next) => {
     let token = req.cookies.token
-    res.json({token: token})
     if(token) {
         jwt.verify(token, 'SECRET_KEY', async (err, decodedToken) => {
             if (err) {

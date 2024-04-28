@@ -24,7 +24,7 @@ export default function Home() {
         (async () => {
             await axios.get(`${APIpath}/auth`)
                 .then((res) => {
-                    console.log("Token: " + res.data)
+                    console.log(res.data)
                     if (res.data.message === 'success') {
                         setId(res.data.user._id)
                         setName(res.data.user.name)
