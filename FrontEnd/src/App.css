@@ -1,0 +1,200 @@
+:root {
+  --primary-color: #ff7f50;
+  --dark-primary: #242121;
+  --body-text-color: #FFFFFF
+}
+
+body {
+  background-color: var(--dark-primary);
+  color: var(--body-text-color);
+  overflow-x: hidden;
+}
+
+.desktop-navigation{
+  height: 70px;
+  background-color: var(--primary-color);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+
+.desktop-navigation .left {
+  text-align: left;
+}
+
+.desktop-navigation .right {
+  text-align: right;
+}
+
+.mobile-navigation {
+  background-color: var(--primary-color);
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .desktop-navigation {
+    display: none;
+  }
+  .mobile-navigation {
+    display: block;
+  }
+}
+
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+
+label {
+  color: white;
+}
+
+
+/* Task List */
+.main-task-list-container {
+  width: 50%;
+  text-wrap: wrap;
+  margin: auto;
+  margin-top: 100px;
+  color: var(--dark-primary);
+
+}
+
+.task-container {
+  display: grid;
+  grid-template-columns: 1fr  100px;
+  padding: 10px;
+  color: #efefef;
+  margin: 10px 0px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: 0.3s;
+  border-bottom: 1px solid #868686;
+}
+
+.task-container .icon.trash:hover {
+  color: rgb(228, 30, 30);
+}
+
+.task-container .icon.pencil:hover {
+  color: rgb(63, 63, 190);
+}
+
+.task-container:hover {
+  /* background-color: var(--primary-color);
+  color: var(--dark-primary) */
+}
+
+.task-container div {
+  text-align: right;
+}
+
+.task-container div .complete-circle {
+  display: none;
+  width: 20px;
+}
+
+.task-container:hover .complete-circle {
+  display: block;
+}
+
+.task-container div .complete-circle .tick{
+  margin-top: 2px;
+  display: none;
+}
+
+.task-container div .complete-circle:hover > .tick {
+  display: block;
+}
+
+.task-container div p{
+  text-align: right;
+  text-wrap: wrap;
+}
+
+
+@media (max-width: 1100px) {
+  .main-task-list-container {
+    width: 70%;
+  }
+}
+
+@media (max-width: 720px) {
+  .main-task-list-container {
+    width: 90%;
+  }
+}
+
+/* Add task */
+.add-task-container {
+  color: var(--body-text-color);
+  cursor: pointer;
+  color: white;
+}
+
+
+.add-task-container:hover {
+  color: var(--primary-color)
+}
+
+.add-task-container .addTaskInput, .add-task-container .editTaskInput {
+  color: white;
+  font-size: 16px;
+  background-color: transparent;
+  border-radius: 6px;
+  box-shadow: none;
+  border: 1px solid #868686;
+  width: 100%;
+  padding: 6px;
+}
+
+.add-task-container .addTaskInput::placeholder {
+  color: white;
+  opacity: 0.2;
+}
+
+.add-task-container .editTaskInput::placeholder {
+  color: white;
+  opacity: 0.5;
+}
+
+.add-task-container .addTaskInput:focus, .add-task-container .editTaskInput:focus {
+  background-color: transparent;
+  color: white;
+  box-shadow: none;
+  border: 1px solid #868686;
+  outline: none;
+}
+
+.addTaskForm {
+  width: 100%;
+}
+
+.addTaskForm button, .addTaskForm button:hover, .addTaskForm button:focus, .addTaskForm button:active {
+  background-color: var(--primary-color);
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  padding: 8px;
+  line-height: 20px;
+}
+
+
+.completedTask {
+  text-decoration: line-through;
+}
+
+
+.login-container, .signup-container {
+  width: 70%;
+}
+
+@media (max-width: 500px) {
+  .login-container, .signup-container {
+    width: 90%;
+  }
+}
