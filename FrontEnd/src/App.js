@@ -9,7 +9,7 @@ import { APIPathContext } from './Contexts/APIPathContext'
 function App() {
   return (
     <>
-      <APIPathContext.Provider value='http://localhost:8000'>
+      <APIPathContext.Provider value='https://todoist-beta.vercel.app'>
 
         <Routes>
           <Route path='/' element={<Home />} />
