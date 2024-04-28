@@ -20,11 +20,13 @@ dotenv.config();
 
 
 const PORT = process.env.PORT || 5000
+const db = process.env.MONGOURL
+
 
 // Connecting to the database and listening to the server
-mongoose.connect("mongodb+srv://Hamza:alialibham@cluster01.njpdmew.mongodb.net/TodoApp")
+mongoose.connect(db)
 .then(() => {
-    app.listen(PORT, () => console.log("Listening on PORT " + PORT))
+    app.listen()
 })
 .catch(() => {
     console.log("Unable to connect to database")
