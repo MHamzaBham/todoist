@@ -38,8 +38,8 @@ const loginUser = async (req, res) => {
         .then(async (user) => {
             if (user) {
                 if(await bcrypt.compare(password, user.password)) {
-                    const token = jwt.sign({ id: user._id }, 'SECRET_KEY');
-                    res.cookie("token", token)
+                    const token = jwt.sign({ id: user._id }, 'SECRET_KEY', {expiresIn: '24h'});
+                    await res.cookie("token", token, {httpOnly: false, maxAge: 24 * 60 * 60 * 10000})
                     res.json({message: "success", user: user})
                 }else {
                     res.json({message: "failure", err: "Incorrect password!"})
