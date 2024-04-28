@@ -29,7 +29,7 @@ mongoose.connect(db)
     app.listen()
 })
 .catch(() => {
-    console.log("Unable to connect to database")
+    console.log("Unable to connect to database" + db)
 })
 
 app.get('/',  (req, res) => {
