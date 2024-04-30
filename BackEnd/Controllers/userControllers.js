@@ -22,7 +22,7 @@ const registerUser = async (req, res) => {
 
                 await User.create({ name, email, password: hash })
                     .then((user) => {
-                        const token = jwt.sign({ id: user._id }, 'SECRET_KEY');
+                        const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY);
                         // res.cookie("token", token)
                         res.json({ message: "success", user: user, token: token })
                     })
@@ -38,7 +38,7 @@ const loginUser = async (req, res) => {
         .then(async (user) => {
             if (user) {
                 if(await bcrypt.compare(password, user.password)) {
-                    const token = jwt.sign({ id: user._id }, 'SECRET_KEY', {expiresIn: '24h'});
+                    const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY, {expiresIn: '24h'});
                     // await res.cookie("token", token, {httpOnly: false, maxAge: 24 * 60 * 60 * 10000})
                     res.json({message: "success", user: user, token: token})
                 }else {
