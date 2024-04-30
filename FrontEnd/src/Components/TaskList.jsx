@@ -41,7 +41,7 @@ export default function TaskList(props) {
 
     function handleAddTask(e) {
         e.preventDefault();
-        let newArray = [...tasks, res.data.task]
+        let newArray = [...tasks, {title: task, userId: userId}]
         setTasks(newArray);
         setIsWriting(!isWriting)
         axios.post(`${APIpath}/task/add`, {title: task, userId: userId})
