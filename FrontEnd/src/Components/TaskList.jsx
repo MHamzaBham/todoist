@@ -41,12 +41,14 @@ export default function TaskList(props) {
 
     function handleAddTask(e) {
         e.preventDefault();
-        setTasks(...tasks, {title: task, userId: userId})
+        let newArray = [...tasks, res.data.task]
+        setTasks(newArray);
+        setIsWriting(!isWriting)
         axios.post(`${APIpath}/task/add`, {title: task, userId: userId})
         .then((res) => {
-            let newArray = [...tasks, res.data.task]
-            setTasks(newArray);
-            setIsWriting(!isWriting)
+            // let newArray = [...tasks, res.data.task]
+            // setTasks(newArray);
+            // setIsWriting(!isWriting)
         })
         .catch(err => console.log(err))
 
