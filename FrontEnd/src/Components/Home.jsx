@@ -51,7 +51,8 @@ export default function Home() {
 
 
     function logoutUser() { // Logout has a link with /login path, so no Navigate()
-        localStorage.removeItem('key');
+        localStorage.removeItem('user');
+        localStorage.removeItem('token');
         // axios.get(`${APIpath}/user/logout`)
         //     .then((res) => {
         //         console.log(res)
