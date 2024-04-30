@@ -75,7 +75,7 @@ function Login() {
                                 <p className="text-center fw-bold mx-3 mb-0 text-white">OR</p>
                             </div>
 
-                            <MDBBtn className="mb-4 w-100" size="lg" style={{ backgroundColor: '#4285F4', border: 'none', maxHeight: '46px' }}>
+                            <MDBBtn disabled className="mb-4 w-100" size="lg" style={{ backgroundColor: '#4285F4', border: 'none', maxHeight: '46px' }}>
                                 <MDBIcon fab icon="twitter" className="mx-2" />
                                 Continue with Google
                             </MDBBtn>
