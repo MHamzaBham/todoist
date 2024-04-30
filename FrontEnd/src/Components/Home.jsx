@@ -51,11 +51,12 @@ export default function Home() {
 
 
     function logoutUser() { // Logout has a link with /login path, so no Navigate()
-        axios.get(`${APIpath}/user/logout`)
-            .then((res) => {
-                console.log(res)
-            })
-            .catch(err => console.log(err));
+        localStorage.removeItem('key');
+        // axios.get(`${APIpath}/user/logout`)
+        //     .then((res) => {
+        //         console.log(res)
+        //     })
+        //     .catch(err => console.log(err));
     }
 
     return (
