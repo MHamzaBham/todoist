@@ -29,7 +29,6 @@ function Login() {
         
         axios.post(`${APIpath}/user/login`, { email: email, password: pass })
             .then((res) => {
-                console.log(res);
                 if (res.data.message === 'success') {
                     localStorage.setItem('user', JSON.stringify(res.data.user));
                     localStorage.setItem('token', JSON.stringify(res.data.token));

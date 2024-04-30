@@ -21,7 +21,6 @@ export default function TaskList(props) {
             await axios.get(`${APIpath}/task/usertasks/${userId}`)
                 .then((res) => {
                     if (res) {
-                        console.log(res.data)
                         setTasks(res.data.tasks)
                     } else {
                         console.log("Data not found!")
@@ -42,7 +41,7 @@ export default function TaskList(props) {
 
     function handleAddTask(e) {
         e.preventDefault();
-
+        setTasks(...tasks, {title: task, userId: userId})
         axios.post(`${APIpath}/task/add`, {title: task, userId: userId})
         .then((res) => {
             let newArray = [...tasks, res.data.task]
