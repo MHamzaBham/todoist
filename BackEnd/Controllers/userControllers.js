@@ -23,8 +23,8 @@ const registerUser = async (req, res) => {
                 await User.create({ name, email, password: hash })
                     .then((user) => {
                         const token = jwt.sign({ id: user._id }, 'SECRET_KEY');
-                        res.cookie("token", token)
-                        res.json({ message: "success", user: user })
+                        // res.cookie("token", token)
+                        res.json({ message: "success", user: user, token: token })
                     })
                     .catch((err) => res.json({ message: 'something went wrong! - user not created, try again', err: err }))
             }
@@ -39,8 +39,8 @@ const loginUser = async (req, res) => {
             if (user) {
                 if(await bcrypt.compare(password, user.password)) {
                     const token = jwt.sign({ id: user._id }, 'SECRET_KEY', {expiresIn: '24h'});
-                    await res.cookie("token", token, {httpOnly: false, maxAge: 24 * 60 * 60 * 10000})
-                    res.json({message: "success", user: user})
+                    // await res.cookie("token", token, {httpOnly: false, maxAge: 24 * 60 * 60 * 10000})
+                    res.json({message: "success", user: user, token: token})
                 }else {
                     res.json({message: "failure", err: "Incorrect password!"})
                 }

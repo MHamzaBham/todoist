@@ -18,7 +18,7 @@ export default function TaskList(props) {
     
     useEffect(() => {
         (async () => {
-            await axios.get(`${APIpath}/task/usertasks/6626f00aa2ab3a7e301ae994`)
+            await axios.get(`${APIpath}/task/usertasks/${userId}`)
                 .then((res) => {
                     if (res) {
                         console.log(res.data)

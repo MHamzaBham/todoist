@@ -24,17 +24,25 @@ export default function Home() {
         (async () => {
             await axios.get(`${APIpath}/auth`)
                 .then((res) => {
-                    console.log(res.data)
-                    if (res.data.message === 'success') {
-                        setId(res.data.user._id)
-                        setName(res.data.user.name)
-                        navigate('/')
-                    } else {
-                        navigate('/login');
+                    // console.log(res.data)
+                    // if (res.data.message === 'success') {
+                    //     setId(res.data.user._id)
+                    //     setName(res.data.user.name)
+                    //     navigate('/')
+                    // } else {
+                    //     navigate('/login');
+                    // }
+                    if(localStorage.getItem('user')) {
+                        let user = JSON.parse(localStorage.getItem('user'))
+                        setId(user._id)
+                        setName(user.name)
+                    }else {
+                        navigate('/login')
                     }
                 })
                 .catch((err) => {
                     console.log(err)
+                    navigate('/login')
                 });
         })()
 

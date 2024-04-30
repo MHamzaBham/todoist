@@ -3,6 +3,6 @@ const authConntrollers = require('../Controllers/authControllers')
 const jwt = require('jsonwebtoken')
 
 
-router.get('/', authConntrollers.auth, authConntrollers.getHome);
+router.get('/', authConntrollers.getHome);
 
 module.exports = router
