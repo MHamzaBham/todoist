@@ -14,8 +14,10 @@ export default function Task(props) {
     function deleteTask(e) {
         axios.delete(`${APIpath}/task/delete/${e.currentTarget.id}`)
             .then((res) => {
-                let newArray = props.tasks.filter((task) => task._id !== props.id);
-                props.setTasks(newArray);
+                if(res.data.message === 'success') {
+                    let newArray = props.tasks.filter((task) => task._id !== props.id);
+                    props.setTasks(newArray);
+                }
             })
             .catch((err) => console.log(err))
     }
