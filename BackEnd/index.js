@@ -12,7 +12,7 @@ app.use(express.json())
 app.use(cookieParser());
 app.use(cors({
     credentials: true,
-    origin: "https://todoist-frontend-seven.vercel.app",
+    origin: '*',
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true
 }))
