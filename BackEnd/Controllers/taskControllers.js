@@ -2,7 +2,14 @@ const Task = require('../Models/tasks.model')
 
 
 const getTasks = (req, res) => {
-    res.json("Here are all the tasks")
+    Task.find()
+        .then((tasks) => {
+            res.json({ message: "success", tasks: tasks });
+        })
+        .catch((err) => {
+            console.error(err);
+            res.status(500).json({ message: "Failed to retrieve tasks", error: err });
+        });
 }
 
 const addTask = async (req, res) => {
